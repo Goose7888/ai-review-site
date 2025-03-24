@@ -82,3 +82,13 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
         // If response is yes, let the user in the gates
         // If response is no yes, tell them no yes
 })
+
+document.querySelector('#btnSwitchToRegistration').addEventListener('click', (event) => {
+    document.querySelector('#pageLogin').classList.add("d-none")
+    document.querySelector('#pageRegister').classList.remove("d-none")
+})
+
+document.querySelector('#btnSwitchToLogin').addEventListener('click', (event) => {
+    document.querySelector('#pageRegister').classList.add("d-none")
+    document.querySelector('#pageLogin').classList.remove("d-none")
+})
