@@ -42,10 +42,10 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
 
 
 // Login Validation
-document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
+document.querySelector('#btnSubmitRegistration').addEventListener('click', function() {
     const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
-    const strEmail = document.querySelector('#txtRegistraitonEmail').value
+    const strEmail = document.querySelector('#txtRegistrationEmail').value
     const strPassword = document.querySelector('#txtRegistrationPassword').value
 
     // Validate Login info
