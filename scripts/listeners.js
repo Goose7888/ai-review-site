@@ -8,7 +8,7 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
     // Validate Login info
     let blnError = false
 
-    if (!regEmail.test())
+    if (!regEmail.test(strEmail))
     {
         console.log('Email is invalid')
         blnError = true
