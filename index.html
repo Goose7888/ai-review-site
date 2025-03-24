@@ -9,29 +9,25 @@
 <body>
     <!--Login Page-->
     <div id="pageLogin" class="d-flex flex-column  min-vh-100 align-items-center justify-content-center">
-        <div class="card col-4 m-2 d-flex flex-column align-items-center p-2">
-            <h1>Group Review&copy;</h1>
-            <h3>Login</h3>
-            <form id="formLogin" class="d-flex flex-column">
-                <input id="txtLoginEmail" type="email" placeholder="Email" class="mb-2">
-                <input id="txtLoginPassword" type="password" placeholder="Password" class="mb-2">
-                <button id="btnSubmitLogin" type="button" class="btn btn-primary col-12">Login</button>
-                <button id="btnSwitchToRegistration" type="button" class="btn btn-link col-12">Need an Account?</button>
-            </form>
-        </div>
+        <form id="formLogin" class="card d-flex flex-column align-items-stretch col-4 p-3">
+            <h1 class="align-self-center">Group Review&copy;</h1>
+            <h3 class="align-self-center">Login</h3>
+            <input id="txtLoginEmail" type="email" placeholder="Email" class="mb-2">
+            <input id="txtLoginPassword" type="password" placeholder="Password" class="mb-2">
+            <button id="btnSubmitLogin" type="button" class="btn btn-primary col-12">Login</button>
+            <button id="btnSwitchToRegistration" type="button" class="btn btn-link col-12">Need an Account?</button>
+        </form>
     </div>
     <!--Registration Page-->
-    <div id="pageRegister" class="d-flex flex-column min-vh-100 align-items-center justify-content-center d-none">
-        <div class="card col-4 m-2 d-flex flex-column align-items-center p-2">
-            <h1>Group Review&copy;</h1>
-            <h3>Registration</h3>
-            <form id="formLogin" class="d-flex flex-column">
-                <input id="txtRegistrationEmail" type="email" placeholder="Email" class="mb-2">
-                <input id="txtRegistrationPassword" type="password" placeholder="Password" class="mb-2">
-                <button id="btnSubmitRegistration" type="button" class="btn btn-primary col-12">Register</button>
-                <button id="btnSwitchToLogin" type="button" class="btn btn-link col-12">Back to Login</button>
-            </form>
-        </div>
+    <div id="pageRegister" class="d-flex d-none flex-column min-vh-100 align-items-center justify-content-center">
+        <form id="formLogin" class="card d-flex flex-column align-items-stretch col-4 p-3">
+            <button id="btnSwitchToLogin" type="button" class="btn btn-link align-self-start col-4">&lt; Back to Login</button>
+            <h1 class="align-self-center">Group Review&copy;</h1>
+            <h3 class="align-self-center">Registration</h3>
+            <input id="txtRegistrationEmail" type="email" placeholder="Email" class="mb-2">
+            <input id="txtRegistrationPassword" type="password" placeholder="Password" class="mb-2">
+            <button id="btnSubmitRegistration" type="button" class="btn btn-primary col-12">Register</button>
+        </form>
     </div>
     <!--Student Dashboard-->
     <!--Complete Form-->
