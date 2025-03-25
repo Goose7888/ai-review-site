@@ -51,6 +51,7 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
     const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
     const strEmail = document.querySelector('#txtRegistrationEmail').value
+    const strEmailConf = document.querySelector('#txtRegistrationConfirmationEmail').value
     const strPassword = document.querySelector('#txtRegistrationPassword').value
     const strPasswordConf = document.querySelector('#txtRegistrationConfirmPassword').value
 
@@ -64,6 +65,13 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
         strErrorMessage += "<p>Email must not be invalid!</p>"
     }
 
+    // Email and confirmation email must match
+    if (strEmail != strEmailConf)
+    {
+        blnError = true
+        strErrorMessage += "<p>Email must match the confirmation email!</p>"
+    }
+
     // no whitespace, 8 or longer chars
     if (strPassword.includes(' ') || strPassword.length < 8)
     {
@@ -75,7 +83,7 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
     if (strPassword != strPasswordConf)
     {
         blnError = true
-        strErrorMessage += "<p>Password field must match password confirmation field!"
+        strErrorMessage += "<p>Password field must match password confirmation field!</p>"
     }
 
 
