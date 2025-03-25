@@ -5,13 +5,15 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
     const strEmail = document.querySelector('#txtLoginEmail').value
     const strPassword = document.querySelector('#txtLoginPassword').value
 
-    // Validate Login info
+    // Validate Login info here
     let blnError = false
+    let strErrorMessage = ''
 
     if (!regEmail.test(strEmail))
     {
         console.log('Email is invalid')
         blnError = true
+        strErrorMessage += "<p>Email must contain an @ and a valid URL.</p>"
     }
 
     // no whitespace, 8 or longer chars
@@ -19,25 +21,30 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
     {
         console.log('Password is invalid')
         blnError = true
+        strErrorMessage += "<p>Password must be at least 8 characters and contain no whitespaces.</p>"
     }
-    
 
     if (blnError)
     {
-        console.log('Hey we have an error')
-        exit()
+        Swal.fire ({
+            title: "You need to **review** your information!",
+            html: strErrorMessage,
+            icon: "error"
+        })
     }
-
-
-    // If validation goes well (we have a yes) do the rest of the function from here
-
-
-    
-
-
-    // POSTs login to backend
+    else
+    {
+        Swal.fire ({
+            title: "Success! You have been logged in!",
+            icon: "success"
+        })
+        
+        // If validation goes well (we have a yes) do the rest of the function from here
+        
+        // POSTs login to backend
         // If response is yes, let the user in the gates
         // If response is no yes, tell them no yes
+    }
 })
 
 
@@ -45,16 +52,18 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
 document.querySelector('#btnSubmitRegistration').addEventListener('click', function() {
     const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
-    const strEmail = document.querySelector('#txtRegistrationEmail').value
-    const strPassword = document.querySelector('#txtRegistrationPassword').value
+    const strEmail = document.querySelector('#txtLoginEmail').value
+    const strPassword = document.querySelector('#txtLoginPassword').value
 
-    // Validate Login info
+    // Validate Login info here
     let blnError = false
+    let strErrorMessage = ''
 
     if (!regEmail.test(strEmail))
     {
         console.log('Email is invalid')
         blnError = true
+        strErrorMessage += "<p>Email must contain an @ and a valid URL.</p>"
     }
 
     // no whitespace, 8 or longer chars
@@ -62,25 +71,30 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
     {
         console.log('Password is invalid')
         blnError = true
+        strErrorMessage += "<p>Password must be at least 8 characters and contain no whitespaces.</p>"
     }
-    
 
     if (blnError)
     {
-        console.log('Hey we have an error')
-        exit()
+        Swal.fire ({
+            title: "You need to **review** your information!",
+            html: strErrorMessage,
+            icon: "error"
+        })
     }
-
-
-    // If validation goes well (we have a yes) do the rest of the function from here
-
-
-    
-
-
-    // POSTs login to backend
-        // If response is yes, let the user in the gates
+    else
+    {
+        Swal.fire ({
+            title: "Success! You have been registered!",
+            icon: "success"
+        })
+        
+        // If validation goes well (we have a yes) do the rest of the function from here
+        
+        // POSTs login to backend
+        // If response is yes, add user to the db
         // If response is no yes, tell them no yes
+    }
 })
 
 document.querySelector('#btnSwitchToRegistration').addEventListener('click', (event) => {
