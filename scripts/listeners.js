@@ -12,7 +12,7 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
     if (!regEmail.test(strEmail))
     {
         blnError = true
-        strErrorMessage += "<p>Email must not be invalid!</p>"
+        strErrorMessage += "<p>Please enter a valid email.</p>"
     }
 
     // no whitespace, 8 or longer chars
@@ -62,7 +62,7 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
     if (!regEmail.test(strEmail))
     {
         blnError = true
-        strErrorMessage += "<p>Email must not be invalid!</p>"
+        strErrorMessage += "<p>Please enter a valid email.</p>"
     }
 
     // Email and confirmation email must match
