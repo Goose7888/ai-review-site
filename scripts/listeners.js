@@ -51,7 +51,7 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
     const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
     const strEmail = document.querySelector('#txtRegistrationEmail').value
-    const strEmailConf = document.querySelector('#txtRegistrationConfirmationEmail').value
+    const strEmailConf = document.querySelector('#txtRegistrationConfirmEmail').value
     const strPassword = document.querySelector('#txtRegistrationPassword').value
     const strPasswordConf = document.querySelector('#txtRegistrationConfirmPassword').value
 
