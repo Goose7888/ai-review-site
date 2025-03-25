@@ -8,11 +8,14 @@
 </head>
 <body style="background-color: rgb(230, 230, 230);">
     <!--Login Page-->
-    <div id="pageLogin" class="d-flex flex-column  min-vh-100 align-items-center justify-content-center">
+    <div id="pageLogin" class="d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <form id="formLogin" class="card d-flex flex-column align-items-stretch col-4 p-3" style="border-color: black;">
             <h1 class="align-self-center">Group Review&copy;</h1>
             <h3 class="align-self-center">Login</h3>
-            <input id="txtLoginEmail" type="email" placeholder="Email" class="mb-2">
+            <label id="lblLoginEmail" class="mb-2">
+                Email
+                <input id="txtLoginEmail" type="email">
+            </label>
             <input id="txtLoginPassword" type="password" placeholder="Password" class="mb-2">
             <button id="btnSubmitLogin" type="button" class="btn btn-primary col-12">Login</button>
             <button id="btnSwitchToRegistration" type="button" class="btn btn-link col-12">Need an Account?</button>
@@ -26,6 +29,7 @@
             <h3 class="align-self-center">Registration</h3>
             <input id="txtRegistrationEmail" type="email" placeholder="Email" class="mb-2">
             <input id="txtRegistrationPassword" type="password" placeholder="Password" class="mb-2">
+            <input id="txtRegistrationConfirmPassword" type="password" placeholder="Password" class="mb-2">
             <button id="btnSubmitRegistration" type="button" class="btn btn-primary col-12">Register</button>
         </form>
     </div>
