@@ -11,23 +11,21 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
 
     if (!regEmail.test(strEmail))
     {
-        console.log('Email is invalid')
         blnError = true
-        strErrorMessage += "<p>Email must contain an @ and a valid URL.</p>"
+        strErrorMessage += "<p>Email must not be invalid!</p>"
     }
 
     // no whitespace, 8 or longer chars
     if (strPassword.includes(' ') || strPassword.length < 8)
     {
-        console.log('Password is invalid')
         blnError = true
-        strErrorMessage += "<p>Password must be at least 8 characters and contain no whitespaces.</p>"
+        strErrorMessage += "<p>Password must be at least 8 characters and contain no whitespaces!</p>"
     }
 
     if (blnError)
     {
         Swal.fire ({
-            title: "You need to **review** your information!",
+            title: "You need to review your information!",
             html: strErrorMessage,
             icon: "error"
         })
@@ -52,8 +50,9 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
 document.querySelector('#btnSubmitRegistration').addEventListener('click', function() {
     const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
-    const strEmail = document.querySelector('#txtLoginEmail').value
-    const strPassword = document.querySelector('#txtLoginPassword').value
+    const strEmail = document.querySelector('#txtRegistrationEmail').value
+    const strPassword = document.querySelector('#txtRegistrationPassword').value
+    const strPasswordConf = document.querySelector('#txtRegistrationConfirmPassword').value
 
     // Validate Login info here
     let blnError = false
@@ -61,23 +60,29 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
 
     if (!regEmail.test(strEmail))
     {
-        console.log('Email is invalid')
         blnError = true
-        strErrorMessage += "<p>Email must contain an @ and a valid URL.</p>"
+        strErrorMessage += "<p>Email must not be invalid!</p>"
     }
 
     // no whitespace, 8 or longer chars
     if (strPassword.includes(' ') || strPassword.length < 8)
     {
-        console.log('Password is invalid')
         blnError = true
-        strErrorMessage += "<p>Password must be at least 8 characters and contain no whitespaces.</p>"
+        strErrorMessage += "<p>Password must be at least 8 characters and contain no whitespaces!</p>"
     }
+
+    // Password Confirmation is the same as strPassword
+    if (strPassword != strPasswordConf)
+    {
+        blnError = true
+        strErrorMessage += "<p>Password field must match password confirmation field!"
+    }
+
 
     if (blnError)
     {
         Swal.fire ({
-            title: "You need to **review** your information!",
+            title: "You need to review your information!",
             html: strErrorMessage,
             icon: "error"
         })
