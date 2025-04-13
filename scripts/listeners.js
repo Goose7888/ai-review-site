@@ -32,11 +32,54 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
     }
     else
     {
-        Swal.fire ({
-            title: "Success! You have been logged in!",
-            icon: "success"
-        })
-        
+        // Swal.fire ({
+        //     title: "Success! You have been logged in!",
+        //     icon: "success"
+        // })
+       
+        fetch(strBaseURL + HTTP_Port + '?' + strEmail + '&' + strPassword, {
+            method: 'GET',
+            headers:
+            {
+                'Content-Type': 'application/json'
+            },
+        }).then(
+            function(objResponse) {
+                if (!objResponse)
+                {
+                    // We may want to consider firing another Swal here... or moving the previous one
+                    throw new error(`HTTP Error Status: &{objResponse.status}`)
+                }
+            }
+        ).then(
+            function(objData) {
+                if(objData.Outcome)
+                {
+                    // Good SweetAlert moved here
+                    Swal.fire ({
+                        title: "Success! You have been logged in!",
+                        icon: "success"
+                    })
+
+                    // Now we need to move the user to the dashboard page.
+                    // Likely a separate page so the content is only served
+                    // upon a successful login.
+
+                }
+                else
+                {
+                    // Maybe include error message in Swal?
+                    Swal.fire ({
+                        title: "Not Success!",
+                        icon: "error"
+                    })
+                }
+            }
+        )
+
+
+
+
         // If validation goes well (we have a yes) do the rest of the function from here
         
         // POSTs login to backend
