@@ -3,12 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard | Group Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
-<body>
+<body class="min-vh-100">
     <!-- Uh oh what is this? Another Page?? -->
+    <div class="d-flex flex-row align-items-center justify-content-center">
 
-    
+        <!-- Profile Info Here -->
+        <div class="card col-3 text-center mt-5">
+            <div class="card-body">
+                <h5 class="card-title">Profile</h5>
+                <p class="card-text">[First Name Last Name]</p>
+                <a href="profile.html" class="btn btn-primary">Change information</a>  
+                <button id="btnSignOut" class="btn btn-primary">Sign Out</button>
+            </div>
+        </div>
 
+        <div class="d-flex flex-column align-items-center justify-content-center col-6">
+
+            <!-- Course Info Here -->
+            <div class="card col-10 text-center mt-5">
+                <div class="card-body">
+                    <h5 class="card-title">Courses</h5>
+
+                    <!-- List of Courses Here -->
+                    <p>Make me a ul or something :)</p>
+
+                    <a href="courses.html" class="btn btn-primary">Add or Drop Courses</a>
+                </div>
+            </div>
+
+            <!-- Team Info Here -->
+            <div class="card col-10 text-center mt-5">
+                <div class="card-body">
+                    <h5 class="card-title">Teams</h5>
+
+                    <!-- List of Courses Here -->
+                    <p>Make me a ul or something :)</p>
+
+                    <a href="teams.html" class="btn btn-primary">Manage Teams</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="/scripts/dashboard.js"></script>
 </body>
 </html>
