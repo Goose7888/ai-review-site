@@ -1,45 +1,48 @@
 // Skeleton Backend for ai review site
-// Trevor Clark
+// Trevor Clark & Joshua Rivers Haley
 // Created: Apr 12, 2025
 
-const express = require('express');
-const cors = require('cors');
+// Pull in modules
+const express = require('express')
+const cors = require('cors')
+const uuid = require('uuid')
+const fs = require('fs')
 
+// Setup for Express
 const HTTP_PORT = 8080;
-
 var app = express();
 app.use(cors());
 app.use(express.json());
 
-/////////////////////////////////
-//       GET Requests          //
-/////////////////////////////////
+// Load frontend files
+let pathFrontend = '../frontend/'
+let strIndexHTML = fs.readFileSync(pathFrontend + 'index.html')
+let strIndexJS = fs.readFileSync(pathFrontend + 'scripts/index.js')
 
-// app.get('/', (req, res, next) => {
-//     res.status(200).json({message: "Hello World!"});
-// });
+// serves up index.html
+app.get('/', (req, res, next) => {
+    strIndexHTML = fs.readFileSync(pathFrontend + 'index.html')
+    res.status(200).contentType('html').send(strIndexHTML)
+})
 
-// Reqs look like 'http(s)://{ip_addr}:{port}/getaccount?{account_id}&{account_passwd}
+// servers up index.js
+app.get('/scripts/index.js', (req, res, next) => {
+    strIndexJS = fs.readFileSync(pathFrontend + 'scripts/index.js')
+    res.status(200).contentType('js').send(strIndexJS)
+})
+
+/* API */
+/* /alive */
+
+app.get('/alive', (req, res, next) => {
+    res.status(200).json({alive: true})
+});
+
+/* /account */
+
 app.get('/account', (req, res, next) => {
-    res.status(200).json({message: "Get Account Request Received"});
+    res.status(200).json({message: "Get Account ID Request Received"});
 });
-
-// Send Course ID as query string
-app.get('/course', (req, res, next) => {
-    res.status(200).json({message: "Get Course Request Received"});
-});
-
-app.get('/team', (req, res, next) => {
-    res.status(200).json({message: "Get Team Request Received"});
-});
-
-app.get('/review', (req, res, next) => {
-    res.status(200).json({message: "Get Review Request Received"});
-});
-
-/////////////////////////////////
-//       POST Requests         //
-/////////////////////////////////
 
 app.post('/account', (req, res, next) => {
     // uuid
@@ -50,49 +53,85 @@ app.post('/account', (req, res, next) => {
     // return account id
 });
 
+/* /account/:accountid */
+
+app.get('/account/:accountid', (req, res, next) => {
+    res.status(200).json({message: "Get Account Request Received"});
+});
+
+app.put('/account/:accountid', (req, res, next) => {
+    // uuid
+    // Name
+    // Password (plain text for now)
+
+    res.status(201).json({message: "Account Update Request Received"});
+});
+
+app.delete('/account/:accountid', (req, res, next) => {
+    res.status(200).json({message: "Account Deletion Request Received"});
+});
+
+/* /course */
+
 app.post('/course', (req, res, next) => {
     res.status(201).json({message: "Course Creation Request Received"});
     // return course id
 });
 
-app.post('/team', (req, res, next) => {
-    res.status(201).json({message: "Team Creation Request Received"});
-    // return team id
+/* /course/:courseid */
+
+// Send Course ID as query string
+app.get('/course/:courseid', (req, res, next) => {
+    res.status(200).json({message: "Get Course Request Received"});
 });
 
-app.post('/review', (req, res, next) => {
+app.put('/course/:courseid', (req, res, next) => {
+    res.status(201).json({message: "Course Creation Request Received"});
+});
+
+app.delete('/course/:courseid', (req, res, next) => {
+    res.status(200).json({message: "Course Deletion Request Received"});
+});
+
+/* /group */
+
+app.post('/group', (req, res, next) => {
+    res.status(201).json({message: "Team Creation Request Received"});
+    // needs to return group id
+});
+
+/* /group/:groupid */
+
+app.get('/group/:groupid', (req, res, next) => {
+    res.status(200).json({message: "Get Team Request Received"});
+});
+
+app.put('/group/:groupid', (req, res, next) => {
+    res.status(201).json({message: "Team Creation Request Received"});
+});
+
+app.delete('/group/:groupid', (req, res, next) => {
+    res.status(200).json({message: "Team Deletion Request Received"});
+});
+
+/* /review */
+
+app.post('/review/:reviewid', (req, res, next) => {
     res.status(201).json({message: "Review Creation Request Received"});
     // return review id
 });
 
-/////////////////////////////////
-//       PUT requests          //
-/////////////////////////////////
+/* /review/:reviewid */
 
-app.put('/password', (req, res, next) => {
-    res.status(201).json({message: "Password Update Request Received"});
+app.get('/review/:reviewid', (req, res, next) => {
+    res.status(200).json({message: "Get Review Request Received"});
 });
 
-// yeah the other updates go here... I'm not worried about those quite yet
-
-
-/////////////////////////////////
-//       DELETE requests       //
-/////////////////////////////////
-
-app.delete('/account', (req, res, next) => {
-    res.status(200).json({message: "Account Deletion Request Received"});
+app.put('/review/:reviewid', (req, res, next) => {
+    res.status(201).json({message: "Review Creation Request Received"});
 });
 
-app.delete('/course', (req, res, next) => {
-    res.status(200).json({message: "Course Deletion Request Received"});
-});
-
-app.delete('/team', (req, res, next) => {
-    res.status(200).json({message: "Team Deletion Request Received"});
-});
-
-app.delete('/review', (req, res, next) => {
+app.delete('/review/:reviewid', (req, res, next) => {
     res.status(200).json({message: "Review Deletion Request Received"});
 });
 
@@ -101,5 +140,5 @@ app.delete('/review', (req, res, next) => {
 //          LISTEN!!           //
 /////////////////////////////////
 app.listen(HTTP_PORT, () => {
-    console.log("Listening on port:", HTTP_PORT);
+    console.log("Listening on port: ", HTTP_PORT);
 });
