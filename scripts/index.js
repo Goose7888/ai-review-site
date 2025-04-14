@@ -1,13 +1,34 @@
 // index.js
 // Goes with content on index.html
 
-
+// Constants and variables
 const strBaseURL = "localhost";
 const BackendPort = 8080;
 
+/* Init */
+swapToPage('#pageLogin')
 
+/* Navigation Listeners */
 
+// Hide all pages, then you can show just one of them
+function swapToPage(strVisiblePage) {
+    document.querySelector('#pageLogin').classList.add("d-none")
+    document.querySelector('#pageRegister').classList.add("d-none")
 
+    document.querySelector(strVisiblePage).classList.remove("d-none")
+}
+
+// Switch to Registration
+document.querySelector('#btnSwitchToRegistration').addEventListener('click', (event) => {
+    swapToPage('#pageRegister')
+})
+
+// Switch to Login
+document.querySelector('#btnSwitchToLogin').addEventListener('click', (event) => {
+    swapToPage('#pageLogin')
+})
+
+/* Validation Listeners */
 
 // Login Validation
 document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
@@ -48,7 +69,7 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
         //     icon: "success"
         // })
        
-        fetch('http://' + strBaseURL + ':' + BackendPort + '/getaccount' + '?' + strEmail + '&' + strPassword, {
+        fetch('http://' + strBaseURL + ':' + BackendPort + '/account' + '?' + strEmail + '&' + strPassword, {
             method: 'GET',
             headers:
             {
@@ -123,7 +144,7 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
 })
 
 
-// Login Validation
+// Registration Validation
 document.querySelector('#btnSubmitRegistration').addEventListener('click', function() {
     const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
@@ -185,14 +206,4 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
         // If response is yes, add user to the db
         // If response is no yes, tell them no yes
     }
-})
-
-document.querySelector('#btnSwitchToRegistration').addEventListener('click', (event) => {
-    document.querySelector('#pageLogin').classList.add("d-none")
-    document.querySelector('#pageRegister').classList.remove("d-none")
-})
-
-document.querySelector('#btnSwitchToLogin').addEventListener('click', (event) => {
-    document.querySelector('#pageRegister').classList.add("d-none")
-    document.querySelector('#pageLogin').classList.remove("d-none")
 })
