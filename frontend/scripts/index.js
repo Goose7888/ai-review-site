@@ -7,15 +7,18 @@ const BackendPort = 8080;
 
 /* Init */
 swapToPage('#pageLogin')
+// Debug
+swapToPage('#pageDashboard')
 
 /* Navigation Listeners */
 
 // Hide all pages, then you can show just one of them
 function swapToPage(strVisiblePage) {
-    document.querySelector('#pageLogin').classList.add("d-none")
-    document.querySelector('#pageRegister').classList.add("d-none")
+    document.querySelectorAll('#pageLogin').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageRegister').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageDashboard').forEach((item) => item.classList.add("d-none"))
 
-    document.querySelector(strVisiblePage).classList.remove("d-none")
+    document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
 }
 
 // Switch to Registration
@@ -25,6 +28,12 @@ document.querySelector('#btnSwitchToRegistration').addEventListener('click', (ev
 
 // Switch to Login
 document.querySelector('#btnSwitchToLogin').addEventListener('click', (event) => {
+    swapToPage('#pageLogin')
+})
+
+document.querySelector('#btnSignOut').addEventListener('click', () => {
+    // Remove session information from browser at this time
+
     swapToPage('#pageLogin')
 })
 
