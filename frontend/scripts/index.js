@@ -5,6 +5,8 @@
 const strBaseURL = "localhost";
 const BackendPort = 8080;
 
+let rowCourseClicked = null
+
 /* Init */
 swapToPage('#pageLogin')
 // Debug
@@ -20,8 +22,12 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageCourses').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageGroups').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageProfile').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageCourseEdit').forEach((item) => item.classList.add("d-none"))
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
+    if(strVisiblePage == '#pageLogin' || strVisiblePage == '#pageRegister') {
+        document.querySelector('#pageNavbar').classList.remove('d-none')
+    }
 }
 
 // Sign Out
@@ -60,6 +66,12 @@ document.querySelectorAll('#btnSwitchToGroups').forEach( (item) => item.addEvent
 document.querySelectorAll('#btnSwitchToProfile').forEach( (item) => item.addEventListener('click', () => {
     swapToPage('#pageProfile')
 }) )
+
+// Switch to Course View
+document.querySelectorAll('#btnSwitchToCourseEdit').forEach( (item) => item.addEventListener('click', function (event) {
+    rowCourseClicked = this
+    swapToPage('#pageCourseEdit')
+}))
 
 /* Validation Listeners */
 
