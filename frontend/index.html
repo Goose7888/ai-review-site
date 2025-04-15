@@ -58,16 +58,16 @@
         </form>
     </div>
 
-    <!--Student Dashboard-->
-    <nav id="pageDashboard" class="navbar sticky-top px-2 px-md-5">
+    <!--Dashboard-->
+    <nav id="pageDashboard" class="navbar sticky-top px-2 px-md-5 py-3">
         <div class="container-fluid">
-            <button id="btnNavDashboard" class="btn" type="button">Dashboard</button>
-            <button id="btnNavCourses" class="btn" type="button">Course</button>
-            <button id="btnNavGroups" class="btn" type="button">Groups</button>
-            <div class="nav-item dropdown ms-auto">
-                <a id="btnAccountDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">First Last</a>
+            <button id="btnSwitchToDashboard" class="btn nav-link me-3" type="button">Dashboard</button>
+            <button id="btnSwitchToCourses" class="btn d-none d-md-block nav-link me-3" type="button">Course</button>
+            <button id="btnSwitchToGroups" class="btn d-none d-md-block nav-link me-3" type="button">Groups</button>
+            <div class="nav-item dropdown ms-md-auto me-auto me-md-5">
+                <button id="btnAccountDropdown" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown">First Last</button>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-item"><button id="btnGoToProfile" class="btn p-0 m-0">Go To Profile</button></li>
+                    <li class="dropdown-item"><button id="btnSwitchToProfile" class="btn p-0 m-0">Go To Profile</button></li>
                     <li class="dropdown-item"><button id="btnSignOut" class="btn p-0 m-0">Sign Out</button></li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@
                 <h5 class="card-title">Courses</h5>
                 <!-- List of Courses Here -->
                 <p>Make me a ul or something :)</p>
-                <button class="btn btn-primary">Manage Courses</button>
+                <button id="btnSwitchToCourses" class="btn btn-primary">Manage Courses</button>
             </div>
         </div>
         <!-- Team Info Here -->
@@ -89,15 +89,60 @@
                 <h5 class="card-title">Groups</h5>
                 <!-- List of Courses Here -->
                 <p>Make me a ul or something :)</p>
-                <button class="btn btn-primary">Manage Teams</button>
+                <button id="btnSwitchToGroups" class="btn btn-primary">Manage Groups</button>
             </div>
         </div>
     </div>
 
+    <!--Course List-->
+    <nav id="pageCourses" class="navbar sticky-top px-2 px-md-5 py-3">
+        <div class="container-fluid">
+            <button id="btnSwitchToDashboard" class="btn nav-link me-3" type="button">Dashboard</button>
+            <button id="btnSwitchToCourses" class="btn d-none d-md-block nav-link me-3" type="button">Course</button>
+            <button id="btnSwitchToGroups" class="btn d-none d-md-block nav-link me-3" type="button">Groups</button>
+            <div class="nav-item dropdown ms-md-auto me-auto me-md-5">
+                <button id="btnAccountDropdown" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown">First Last</button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><button id="btnSwitchToProfile" class="btn p-0 m-0">Go To Profile</button></li>
+                    <li class="dropdown-item"><button id="btnSignOut" class="btn p-0 m-0">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Groups-->
+    <nav id="pageGroups" class="navbar sticky-top px-2 px-md-5 py-3">
+        <div class="container-fluid">
+            <button id="btnSwitchToDashboard" class="btn nav-link me-3" type="button">Dashboard</button>
+            <button id="btnSwitchToCourses" class="btn d-none d-md-block nav-link me-3" type="button">Course</button>
+            <button id="btnSwitchToGroups" class="btn d-none d-md-block nav-link me-3" type="button">Groups</button>
+            <div class="nav-item dropdown ms-md-auto me-auto me-md-5">
+                <button id="btnAccountDropdown" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown">First Last</button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><button id="btnSwitchToProfile" class="btn p-0 m-0">Go To Profile</button></li>
+                    <li class="dropdown-item"><button id="btnSignOut" class="btn p-0 m-0">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Profile-->
+    <nav id="pageProfile" class="navbar sticky-top px-2 px-md-5 py-3">
+        <div class="container-fluid">
+            <button id="btnSwitchToDashboard" class="btn nav-link me-3" type="button">Dashboard</button>
+            <button id="btnSwitchToCourses" class="btn d-none d-md-block nav-link me-3" type="button">Course</button>
+            <button id="btnSwitchToGroups" class="btn d-none d-md-block nav-link me-3" type="button">Groups</button>
+            <div class="nav-item dropdown ms-md-auto me-auto me-md-5">
+                <button id="btnAccountDropdown" class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown">First Last</button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><button id="btnSwitchToProfile" class="btn p-0 m-0">Go To Profile</button></li>
+                    <li class="dropdown-item"><button id="btnSignOut" class="btn p-0 m-0">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!--Complete Form-->
-
-
-    <!--Instructor Dashboard-->
 
 
     <!--Form Editor-->

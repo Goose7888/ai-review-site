@@ -17,25 +17,49 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageLogin').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageRegister').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageDashboard').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageCourses').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageGroups').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageProfile').forEach((item) => item.classList.add("d-none"))
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
 }
 
-// Switch to Registration
-document.querySelector('#btnSwitchToRegistration').addEventListener('click', (event) => {
-    swapToPage('#pageRegister')
-})
-
-// Switch to Login
-document.querySelector('#btnSwitchToLogin').addEventListener('click', (event) => {
-    swapToPage('#pageLogin')
-})
-
-document.querySelector('#btnSignOut').addEventListener('click', () => {
+// Sign Out
+document.querySelectorAll('#btnSignOut').forEach( (item) => item.addEventListener('click', () => {
     // Remove session information from browser at this time
 
     swapToPage('#pageLogin')
-})
+}) )
+
+// Switch to Registration
+document.querySelectorAll('#btnSwitchToRegistration').forEach( (item) => item.addEventListener('click', (event) => {
+    swapToPage('#pageRegister')
+}) )
+
+// Switch to Login
+document.querySelectorAll('#btnSwitchToLogin').forEach( (item) => item.addEventListener('click', (event) => {
+    swapToPage('#pageLogin')
+}) )
+
+// Switch to Dashboard
+document.querySelectorAll('#btnSwitchToDashboard').forEach( (item) => item.addEventListener('click', () => {
+    swapToPage('#pageDashboard')
+}) )
+
+// Switch to Courses
+document.querySelectorAll('#btnSwitchToCourses').forEach( (item) => item.addEventListener('click', () => {
+    swapToPage('#pageCourses')
+}) )
+
+// Switch to Groups
+document.querySelectorAll('#btnSwitchToGroups').forEach( (item) => item.addEventListener('click', () => {
+    swapToPage('#pageGroups')
+}) )
+
+// Switch to Profile
+document.querySelectorAll('#btnSwitchToProfile').forEach( (item) => item.addEventListener('click', () => {
+    swapToPage('#pageProfile')
+}) )
 
 /* Validation Listeners */
 
