@@ -16,7 +16,7 @@
     <!--Navbar-->
     <nav id="pageNavbar" class="navbar sticky-top px-2 px-md-5 py-3">
         <div class="container-fluid">
-            <button id="btnSwitchToDashboard" class="btn nav-link me-3" type="button">Dashboard</button>
+            <button id="btnSwitchToDashboard" class="btn nav-link me-3" type="button"><b>Dashboard</b></button>
             <button id="btnSwitchToCourses" class="btn d-none d-md-block nav-link me-3" type="button">Courses</button>
             <button id="btnSwitchToGroups" class="btn d-none d-md-block nav-link me-3" type="button">Groups</button>
             <div class="nav-item dropdown ms-md-auto me-auto me-md-5">
@@ -109,8 +109,6 @@
 
     <!--Course List-->
     <div id="pageCourses" class="d-flex flex-column align-items-center col-12 p-3 p-md-4 p-lg-5">
-        <button id="btnSwitchToCourseCreate" type="button" class="btn btn-success">New Course</button>
-        <!-- Course List -->
         <div class="card text-center mt-3">
             <div class="card-body">
                 <h3 class="card-title">Course List</h3>
@@ -127,17 +125,18 @@
                         <td><p class="m-0 p-2">1000/1001</p></td>
                         <td>
                             <button id="btnSwitchToCourseEdit"  type="button" class="btn btn-primary">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button> <!--Needs Request-->
+                            <button id="btnSwitchToCourseDelete" type="button" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 </table>
+                <button id="btnSwitchToCourseCreate" type="button" class="btn btn-success">New Course</button>
             </div>
         </div>
     </div>
 
     <!--Course Create-->
     <div id="pageCourseCreate" class="d-flex flex-column flex-md-row min-vh-100 align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
-        <form id="formLogin" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3">
+        <form id="formCourseCreate" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3">
             <h3 class="align-self-center mb-4">Create Course</h3>
             <label class="d-flex mb-2">
                 <p class="me-1 mb-0">Name:</p>
@@ -163,7 +162,7 @@
             </table>
             <button id="btnSubmitCourseCreate" type="button" class="btn btn-success col-12">Create</button> <!--Needs Request-->
         </form>
-        <form id="formLogin" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3 ms-md-3 mt-3 mt-md-0">
+        <form id="formStudentCreate" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3 ms-md-3 mt-3 mt-md-0">
             <h3 class="align-self-center mb-4">Add Student</h3>
             <label class="d-flex mb-2">
                 <p class="me-1 mb-0">Name:</p>
@@ -179,7 +178,7 @@
 
     <!--Course Update-->
     <div id="pageCourseEdit" class="d-flex flex-column flex-md-row min-vh-100 align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
-        <form id="formLogin" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3">
+        <form id="formCourseEdit" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3">
             <h3 class="align-self-center mb-4">Edit Course</h3>
             <label class="d-flex mb-2">
                 <p class="me-1 mb-0">Name:</p>
@@ -205,7 +204,7 @@
             </table>
             <button id="btnSubmitCourseEdit" type="button" class="btn btn-success col-12">Done</button> <!--Needs Request-->
         </form>
-        <form id="formLogin" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3 ms-md-3 mt-3 mt-md-0">
+        <form id="formStudentCreate" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3 ms-md-3 mt-3 mt-md-0">
             <h3 class="align-self-center mb-4">Add Student</h3>
             <label class="d-flex mb-2">
                 <p class="me-1 mb-0">Name:</p>
@@ -220,13 +219,26 @@
     </div>
 
     <!--Course Confirm Delete-->
-    
+    <div id="pageCourseDelete" class="d-flex flex-column flex-md-row min-vh-100 align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
+        <div>
+            <h1>Are you sure you want to delete?</h1>
+            <button id="btnDoIt" type="button" class="btn btn-danger">Yes</button>
+            <button id="btnSwitchToCourses" type="button" class="btn btn-primary">No</button>
+        </div>
+    </div>
 
     <!--Group List-->
 
     <!--Group Update-->
 
     <!--Group Confirm Delete-->
+    <div id="pageGroupDelete" class="d-flex flex-column flex-md-row min-vh-100 align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
+        <div >
+            <h1>Are you sure you want to delete?</h1>
+            <button id="btnDoIt" type="button" class="btn btn-danger">Yes</button>
+            <button id="btnDontDoIt" type="button" class="btn btn-primary">No</button>
+        </div>
+    </div>
 
     <!--Profile-->
     <div id="pageProfile" class="d-flex flex-column align-items-center col-12 p-3 p-md-4 p-lg-5">
