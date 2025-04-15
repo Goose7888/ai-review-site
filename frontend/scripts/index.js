@@ -16,6 +16,7 @@ swapToPage('#pageDashboard')
 
 // Hide all pages, then you can show just one of them
 function swapToPage(strVisiblePage) {
+    document.querySelector('#pageNavbar').classList.add('d-none')
     document.querySelectorAll('#pageLogin').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageRegister').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageDashboard').forEach((item) => item.classList.add("d-none"))
@@ -24,9 +25,11 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageProfile').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageCourseEdit').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageCourseCreate').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageCourseDelete').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageGroupDelete').forEach((item) => item.classList.add("d-none"))
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
-    if(strVisiblePage == '#pageLogin' || strVisiblePage == '#pageRegister') {
+    if(strVisiblePage != '#pageLogin' && strVisiblePage != '#pageRegister') {
         document.querySelector('#pageNavbar').classList.remove('d-none')
     }
 }
@@ -76,8 +79,13 @@ document.querySelectorAll('#btnSwitchToCourseEdit').forEach( (item) => item.addE
 
 // Switch to Course Create
 document.querySelectorAll('#btnSwitchToCourseCreate').forEach( (item) => item.addEventListener('click', function (event) {
+        swapToPage('#pageCourseCreate')
+}))
+
+// Switch to Course Delete
+document.querySelectorAll('#btnSwitchToCourseDelete').forEach( (item) => item.addEventListener('click', function (event) {
     rowCourseClicked = this
-    swapToPage('#pageCourseCreate')
+    swapToPage('#pageCourseDelete')
 }))
 
 /* Validation Listeners */
