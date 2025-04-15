@@ -37,6 +37,16 @@ app.get('/scripts/index.js', (req, res, next) => {
     }
 })
 
+// servers up account_circle.svg
+app.get('/img/account_circle.svg', (req, res, next) => {
+    try {
+        res.status(200).contentType('svg').send(fs.readFileSync(pathFrontend + 'img/account_circle.svg'))
+    } catch (error) {
+        console.error("/img/account_circle.svg : " + error)
+        res.status(500)
+    }
+})
+
 /* API */
 /* /alive */
 

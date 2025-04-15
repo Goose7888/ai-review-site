@@ -23,6 +23,7 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageGroups').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageProfile').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageCourseEdit').forEach((item) => item.classList.add("d-none"))
+    document.querySelectorAll('#pageCourseCreate').forEach((item) => item.classList.add("d-none"))
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
     if(strVisiblePage == '#pageLogin' || strVisiblePage == '#pageRegister') {
@@ -67,10 +68,16 @@ document.querySelectorAll('#btnSwitchToProfile').forEach( (item) => item.addEven
     swapToPage('#pageProfile')
 }) )
 
-// Switch to Course View
+// Switch to Course Edit
 document.querySelectorAll('#btnSwitchToCourseEdit').forEach( (item) => item.addEventListener('click', function (event) {
     rowCourseClicked = this
     swapToPage('#pageCourseEdit')
+}))
+
+// Switch to Course Create
+document.querySelectorAll('#btnSwitchToCourseCreate').forEach( (item) => item.addEventListener('click', function (event) {
+    rowCourseClicked = this
+    swapToPage('#pageCourseCreate')
 }))
 
 /* Validation Listeners */
