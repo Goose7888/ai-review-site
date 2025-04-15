@@ -80,6 +80,44 @@ document.querySelectorAll('#btnSwitchToCourseCreate').forEach( (item) => item.ad
     swapToPage('#pageCourseCreate')
 }))
 
+// Send change password request
+document.querySelector('#btnChangeEmail').addEventListener('click', async () => {
+    const { value: strEmail } = await Swal.fire({
+        title: "Update email address",
+        input: "email",
+        inputLabel: "Your new email address",
+        inputPlaceholder: "Enter your new email address",
+        showCancelButton: true
+      });
+      if (strEmail) {
+        Swal.fire({
+            title: `Changed email to: ${strEmail}`,
+            icon: "success"
+        });
+        // Logic to update email goes here:
+
+      } 
+})
+
+// Send change password request
+document.querySelector('#btnChangePassword').addEventListener('click',  async () => {
+    const { value: strPassword } = await Swal.fire({
+        title: "Update Password",
+        input: "password",
+        inputLabel: "Your new password",
+        inputPlaceholder: "Enter your new password",
+        showCancelButton: true
+      });
+      if (strPassword) {
+        Swal.fire({
+            title: `Changed password!`,
+            icon: "success"
+        });
+        // Logic to update password goes here:
+
+      } 
+})
+
 /* Validation Listeners */
 
 // Login Validation
