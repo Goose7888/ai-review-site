@@ -15,20 +15,26 @@ app.use(cors());
 app.use(express.json());
 
 // Load frontend files
-let pathFrontend = '../frontend/'
-let strIndexHTML = fs.readFileSync(pathFrontend + 'index.html')
-let strIndexJS = fs.readFileSync(pathFrontend + 'scripts/index.js')
+const pathFrontend = '../frontend/'
 
 // serves up index.html
 app.get('/', (req, res, next) => {
-    strIndexHTML = fs.readFileSync(pathFrontend + 'index.html')
-    res.status(200).contentType('html').send(strIndexHTML)
+    try {
+        res.status(200).contentType('html').send(fs.readFileSync(pathFrontend + 'index.html'))
+    } catch (error) {
+        console.error("/index.html : " + error)
+        res.status(500)
+    }
 })
 
 // servers up index.js
 app.get('/scripts/index.js', (req, res, next) => {
-    strIndexJS = fs.readFileSync(pathFrontend + 'scripts/index.js')
-    res.status(200).contentType('js').send(strIndexJS)
+    try {
+        res.status(200).contentType('js').send(fs.readFileSync(pathFrontend + 'scripts/index.js'))
+    } catch (error) {
+        console.error("/scripts/index.js : " + error)
+        res.status(500)
+    }
 })
 
 /* API */
