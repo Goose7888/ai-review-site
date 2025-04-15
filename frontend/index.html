@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Review&copy;</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Add CSS inside this style tag to change the look of the page -->
+    <style>
+        .card {border-color:black;}
+        .navbar {background-color:rgb(200, 200, 200);}
+    </style>
 </head>
 <body style="background-color: rgb(230, 230, 230);">
 
     <!--Login Page-->
     <div id="pageLogin" class="d-flex flex-column min-vh-100 align-items-center justify-content-center">
         <!--<p style="color: rgb(230, 230, 230);">Designed by Trevor Clark and Rivers Haley</p>-->
-        <form id="formLogin" class="card d-flex flex-column align-items-stretch col-lg-4 col-md-6 p-3" style="border-color: black;">
+        <form id="formLogin" class="card d-flex flex-column align-items-stretch col-lg-4 col-md-6 p-3">
             <h1 class="align-self-center mb-1">Group Review&copy;</h1>
             <h2 class="align-self-center mb-4">Login</h3>
             <label class="d-flex mb-2">
@@ -29,7 +34,7 @@
 
     <!--Registration Page-->
     <div id="pageRegister" class="d-flex flex-column min-vh-100 align-items-center justify-content-center">
-        <form id="formRegister" class="card d-flex flex-column align-items-stretch col-lg-4 col-md-6 p-3" style="border-color: black;">
+        <form id="formRegister" class="card d-flex flex-column align-items-stretch col-lg-4 col-md-6 p-3">
             <button id="btnSwitchToLogin" type="button" class="btn btn-link align-self-start col-md-4 mb-4">&lt; Back to Login</button>
             <h1 class="align-self-center mb-1">Group Review&copy;</h1>
             <h2 class="align-self-center mb-4">Registration</h3>
@@ -54,46 +59,38 @@
     </div>
 
     <!--Student Dashboard-->
-    <nav id="pageDashboard" class="navbar fixed-top">
-        <h1>Test</h1>
-    </nav>
-    <div id="pageDashboard" class="d-flex flex-row min-vh-100 align-items-center justify-content-center">
-        <!-- Profile Info Here -->
-        <div class="card col-3 text-center mt-5">
-            <div class="card-body">
-                <h5 class="card-title">Profile</h5>
-                <p class="card-text">[First Name Last Name]</p>
-                <a href="profile.html" class="btn btn-primary">Change information</a>  
-                <button id="btnSignOut" class="btn btn-primary">Sign Out</button>
+    <nav id="pageDashboard" class="navbar sticky-top px-2 px-md-5">
+        <div class="container-fluid">
+            <button id="btnNavDashboard" class="btn" type="button">Dashboard</button>
+            <button id="btnNavCourses" class="btn" type="button">Course</button>
+            <button id="btnNavGroups" class="btn" type="button">Groups</button>
+            <div class="nav-item dropdown ms-auto">
+                <a id="btnAccountDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">First Last</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><button id="btnGoToProfile" class="btn p-0 m-0">Go To Profile</button></li>
+                    <li class="dropdown-item"><button id="btnSignOut" class="btn p-0 m-0">Sign Out</button></li>
+                </ul>
             </div>
         </div>
-
-        <div class="d-flex flex-column align-items-center justify-content-center col-6">
-
-            <!-- Course Info Here -->
-            <div class="card col-10 text-center mt-5">
-                <div class="card-body">
-                    <h5 class="card-title">Courses</h5>
-
-                    <!-- List of Courses Here -->
-                    <p>Make me a ul or something :)</p>
-
-                    <a href="courses.html" class="btn btn-primary">Manage Courses</a>
-                </div>
+    </nav>
+    <div id="pageDashboard" class="d-flex flex-column flex-md-row align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
+        <!-- Course Info Here -->
+        <div class="card text-center col-md-6 col-lg-4">
+            <div class="card-body">
+                <h5 class="card-title">Courses</h5>
+                <!-- List of Courses Here -->
+                <p>Make me a ul or something :)</p>
+                <button class="btn btn-primary">Manage Courses</button>
             </div>
-
-            <!-- Team Info Here -->
-            <div class="card col-10 text-center mt-5">
-                <div class="card-body">
-                    <h5 class="card-title">Teams</h5>
-
-                    <!-- List of Courses Here -->
-                    <p>Make me a ul or something :)</p>
-
-                    <a href="teams.html" class="btn btn-primary">Manage Teams</a>
-                </div>
+        </div>
+        <!-- Team Info Here -->
+        <div class="card text-center col-md-6 col-lg-4 ms-md-4 ms-lg-5 mt-3 mt-md-0">
+            <div class="card-body">
+                <h5 class="card-title">Groups</h5>
+                <!-- List of Courses Here -->
+                <p>Make me a ul or something :)</p>
+                <button class="btn btn-primary">Manage Teams</button>
             </div>
-
         </div>
     </div>
 
