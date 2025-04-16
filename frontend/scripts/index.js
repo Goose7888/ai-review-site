@@ -29,6 +29,7 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageGroupDelete').forEach((item) => item.classList.add("d-none"))
     document.querySelector('#pageCreateReview').classList.add("d-none")
     document.querySelector('#pageReviews').classList.add("d-none")
+    document.querySelector('#pageGroupEdit').classList.add("d-none")
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
     if(strVisiblePage != '#pageLogin' && strVisiblePage != '#pageRegister') {
@@ -93,6 +94,14 @@ document.querySelectorAll('#btnSwitchToCourseDelete').forEach( (item) => item.ad
 // Swicth to Review Create
 document.querySelector('#btnSwitchToReviewCreate').addEventListener('click', () => {
     swapToPage('#pageCreateReview')
+})
+
+document.querySelector('#btnSwitchToGroupDelete').addEventListener('click', function (event) {
+    swapToPage('#pageGroupDelete')
+})
+
+document.querySelector('#btnSwitchToGroupEdit').addEventListener('click', function (event) {
+    swapToPage('#pageGroupEdit')
 })
 
 document.querySelector('#rngRating').addEventListener('input', () => {
