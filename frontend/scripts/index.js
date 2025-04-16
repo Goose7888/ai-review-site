@@ -27,6 +27,7 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageCourseCreate').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageCourseDelete').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageGroupDelete').forEach((item) => item.classList.add("d-none"))
+    document.querySelector('#pageCreateReview').classList.add("d-none")
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
     if(strVisiblePage != '#pageLogin' && strVisiblePage != '#pageRegister') {
@@ -88,7 +89,12 @@ document.querySelectorAll('#btnSwitchToCourseDelete').forEach( (item) => item.ad
     swapToPage('#pageCourseDelete')
 }))
 
-// Send change password request
+// Swicth to Review Create
+document.querySelector('#btnSwitchToReviewCreate').addEventListener('click', () => {
+    swapToPage('#pageCreateReview')
+})
+
+// Send change email request
 document.querySelector('#btnChangeEmail').addEventListener('click', async () => {
     const { value: strEmail } = await Swal.fire({
         title: "Update email address",
@@ -204,35 +210,6 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
         )
 
 
-        // old
-        //     function(objData) {
-        //         if(objData.Outcome)
-        //         {
-        //             // Good SweetAlert moved here
-        //             Swal.fire ({
-        //                 title: "Success! You have been logged in!",
-        //                 icon: "success"
-        //             })
-
-        //             // Now we need to move the user to the dashboard page.
-        //             // Likely a separate page so the content is only served
-        //             // upon a successful login.
-
-        //         }
-        //         else
-        //         {
-        //             // Maybe include error message in Swal?
-        //             Swal.fire ({
-        //                 title: "Not Success!",
-        //                 icon: "error"
-        //             })
-        //         }
-        //     }
-        // )
-
-
-
-
         // If validation goes well (we have a yes) do the rest of the function from here
         
         // POSTs login to backend
@@ -304,4 +281,47 @@ document.querySelector('#btnSubmitRegistration').addEventListener('click', funct
         // If response is yes, add user to the db
         // If response is no yes, tell them no yes
     }
+})
+
+// Review Submission Validation
+document.querySelector('#btnSubmitReview').addEventListener('click', () => {
+    let blnError = false
+    strMessage = ''
+
+    const strPubFeedback = document.querySelector('#txtPubFeedback').value
+    const strPrivFeedback = document.querySelector('#txtPrivFeedback').value
+    const intRating = Number(document.querySelector('#rngRating').value)
+
+    if (strPubFeedback.length < 1)
+    {
+        blnError = true;
+        strMessage += `<p>You <b>must</b> have a Public Feedback!</p>`
+    }
+
+    if (intRating < 1 || intRating > 10)
+    {
+        blnError = true
+        strMessage += `<p>Invalid Rating!</p>`
+    }
+
+    if (blnError)
+    {
+        Swal.fire({
+            title: "You left me a bad review!",
+            html: strMessage,
+            icon: "error"
+        })
+    }
+    else
+    {
+        // HTTP POST goes here
+
+
+        Swal.fire({
+            title: "Review submitted!",
+            icon: "success"
+        })
+    }
+
+
 })
