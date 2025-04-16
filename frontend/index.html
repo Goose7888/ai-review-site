@@ -251,7 +251,8 @@
                         <td><p class="m-0 p-2">1</p></td>
                         <td><p class="m-0 p-2">Web Dev</p></td>
                         <td>
-                            <button id="btnSwitchToReviewCreate"  type="button" class="btn btn-primary">Review</button>
+                            <button id="btnSwitchToReview"  type="button" class="btn btn-primary">Reviews</button>
+                            <button id="btnSwitchToReviewCreate"  type="button" class="btn btn-primary">New Review</button>
                             <button id="btnSwitchToGroupEdit"  type="button" class="btn btn-primary">Edit</button>
                             <button id="btnSwitchToGroupDelete" type="button" class="btn btn-danger">Delete</button>
                         </td>
@@ -313,6 +314,28 @@
 
     
     <!--Review View-->
+    <div id="pageReviews" class="d-flex flex-column align-items-center col-12 p-3 p-md-4 p-lg-5">
+        <!--View Reviews-->
+        <div class="card text-center mt-3 col-8">
+            <div class="card-body">
+                <h3 class="card-title">Reviews for [Course Name]</h3>
+                <table id="tblReviews" class="table mb-3">
+                    <tr>
+                        <th>Group Number</th>
+                        <th>Course</th>
+                        <th>Reviews</th>
+                    </tr>
+                    <tr>
+                        <td><p class="m-0 p-2">1</p></td>
+                        <td><p class="m-0 p-2">Web Dev</p></td>
+                        <td>
+                            <p class="m-0 p-2">[Review Summary]</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
     <!--Scripts-->

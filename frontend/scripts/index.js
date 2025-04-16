@@ -28,6 +28,7 @@ function swapToPage(strVisiblePage) {
     document.querySelectorAll('#pageCourseDelete').forEach((item) => item.classList.add("d-none"))
     document.querySelectorAll('#pageGroupDelete').forEach((item) => item.classList.add("d-none"))
     document.querySelector('#pageCreateReview').classList.add("d-none")
+    document.querySelector('#pageReviews').classList.add("d-none")
 
     document.querySelectorAll(strVisiblePage).forEach((item) => item.classList.remove("d-none"))
     if(strVisiblePage != '#pageLogin' && strVisiblePage != '#pageRegister') {
@@ -96,6 +97,10 @@ document.querySelector('#btnSwitchToReviewCreate').addEventListener('click', () 
 
 document.querySelector('#rngRating').addEventListener('input', () => {
     document.querySelector('#ratingDisplay').innerHTML = `Value: ${document.querySelector('#rngRating').value}`
+})
+
+document.querySelector('#btnSwitchToReview').addEventListener('click', () => {
+    swapToPage('#pageReviews')
 })
 
 // Send change email request
