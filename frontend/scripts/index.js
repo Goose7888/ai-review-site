@@ -94,6 +94,10 @@ document.querySelector('#btnSwitchToReviewCreate').addEventListener('click', () 
     swapToPage('#pageCreateReview')
 })
 
+document.querySelector('#rngRating').addEventListener('input', () => {
+    document.querySelector('#ratingDisplay').innerHTML = `Value: ${document.querySelector('#rngRating').value}`
+})
+
 // Send change email request
 document.querySelector('#btnChangeEmail').addEventListener('click', async () => {
     const { value: strEmail } = await Swal.fire({
