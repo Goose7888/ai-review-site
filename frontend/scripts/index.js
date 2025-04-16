@@ -103,6 +103,10 @@ document.querySelector('#btnSwitchToGroupEdit').addEventListener('click', functi
     swapToPage('#pageGroupEdit')
 })
 
+document.querySelector('#rngRating').addEventListener('input', () => {
+    document.querySelector('#ratingDisplay').innerHTML = `Value: ${document.querySelector('#rngRating').value}`
+})
+
 // Send change email request
 document.querySelector('#btnChangeEmail').addEventListener('click', async () => {
     const { value: strEmail } = await Swal.fire({

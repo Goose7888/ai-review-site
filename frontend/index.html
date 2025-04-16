@@ -336,21 +336,9 @@
                     <label for="txtPrivFeedback" class="form-label">Enter Private Feedback: (Optional)</label>
                     <textarea id="txtPrivFeedback" type="text" class="form-control mb-3"></textarea>
                     <label for="rngRating" class="form-label">What is Your Overall Rating?</label>
-                    <input id="rngRating" type="range" class="form-range" min="1" max="10" step="1" list="dataValues">
-
-                    <datalist id="dataValues">
-                        <option value="1" label="1"></option>
-                        <option value="2" label="2"></option>
-                        <option value="3" label="3"></option>
-                        <option value="4" label="4"></option>
-                        <option value="5" label="5"></option>
-                        <option value="6" label="6"></option>
-                        <option value="7" label="7"></option>
-                        <option value="8" label="8"></option>
-                        <option value="9" label="9"></option>
-                        <option value="10" label="10"></option>
-                    </datalist>
-
+                    <input id="rngRating" type="range" class="form-range" min="1" max="10" step="1">
+                    <label id="ratingDisplay" for="rngRating" class="form-label mb-3">Value: </label>
+                </br>
                     <button id="btnSubmitReview" type="button" class="btn btn-primary">Submit</button>
                 </form>
             </div>
