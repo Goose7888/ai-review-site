@@ -263,13 +263,49 @@
     </div>
 
     <!--Group Update-->
+    <div id="pageGroupEdit" class="d-flex flex-column flex-md-row min-vh-100 align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
+        <form id="formGroupEdit" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3">
+            <h3 class="align-self-center mb-4">Edit Group</h3>
+            <label class="d-flex mb-2">
+                <p class="me-1 mb-0">Number:</p>
+                <input id="txtCourseName" type="number">
+            </label>
+            <table id="tblCoursesFull" class="table mb-3">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td><p class="m-0 p-2">Billy Bob</p></td>
+                    <td><p class="m-0 p-2">bbob@aol.com</p></td>
+                    <td>
+                        <button id="btnRemoveStudent" type="button" class="btn btn-danger">Remove</button> <!--Needs Request-->
+                    </td>
+                </tr>
+            </table>
+            <button id="btnSubmitCourseEdit" type="button" class="btn btn-success col-12">Done</button> <!--Needs Request-->
+        </form>
+        <form id="formStudentCreate" class="card d-flex flex-column align-items-center col-lg-4 col-md-6 p-3 ms-md-3 mt-3 mt-md-0">
+            <h3 class="align-self-center mb-4">Add Student</h3>
+            <label class="d-flex mb-2">
+                <p class="me-1 mb-0">Name:</p>
+                <input id="txtStudentName" type="text">
+            </label>
+            <label class="d-flex mb-2">
+                <p class="me-1 mb-0">Email:</p>
+                <input id="txtStudentEmail" type="email">
+            </label>
+            <button type="button" class="btn btn-primary">Add Student</button> <!--Needs Request-->
+        </form>
+    </div>
 
     <!--Group Confirm Delete-->
     <div id="pageGroupDelete" class="d-flex flex-column flex-md-row min-vh-100 align-items-md-start justify-content-md-center p-3 p-md-4 p-lg-5">
-        <div >
+        <div>
             <h1>Are you sure you want to delete?</h1>
             <button id="btnDoIt" type="button" class="btn btn-danger">Yes</button>
-            <button id="btnDontDoIt" type="button" class="btn btn-primary">No</button>
+            <button id="btnSwitchToGroups" type="button" class="btn btn-primary">No</button>
         </div>
     </div>
 
@@ -286,8 +322,6 @@
             </div>
         </div>
     </div>
-
-    <!--Profile Confirm Delete-->
 
     <!--Review Create-->
     <div id="pageCreateReview" class="d-flex flex-column align-items-center col-12 p-3 p-md-4 p-lg-5">
