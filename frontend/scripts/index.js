@@ -186,46 +186,54 @@ document.querySelector('#btnSubmitLogin').addEventListener('click', function() {
     }
     else
     {
+
+        swapToPage("#pageDashboard")
+
         // Swal.fire ({
         //     title: "Success! You have been logged in!",
         //     icon: "success"
         // })
        
-        fetch('http://' + strBaseURL + ':' + BackendPort + '/account' + '?' + strEmail + '&' + strPassword, {
-            method: 'GET',
-            headers:
-            {
-                'Content-Type': 'application/json'
-            },
-        })
-        .then(
-            objResponse => {
-                return objResponse.json()
-            }
-        )
-        .then(
-            objData => {
-                if (objData.status == 200)
-                {
-                    // User authenticated! Proceed to dashbard page
-                    // console.log(objData)
-                    window.location.href="/dashboard.html"
-                }
-                else
-                {
-                    // Swal for invalid creds
-                }
-            }
-        )
-        .catch(
-            error => {
-                // We put error alert here
-                Swal.fire ({
-                    title: "Error!",
-                    message: error
-                })
-            }
-        )
+        // fetch('http://' + strBaseURL + ':' + BackendPort + '/account' + '?' + strEmail + '&' + strPassword, {
+        //     method: 'GET',
+        //     headers:
+        //     {
+        //         'Content-Type': 'application/json'
+        //     },
+        // })
+        // .then(
+        //     objResponse => {
+        //         return objResponse.json()
+        //     }
+        // )
+        // .then(
+        //     objData => {
+        //         if (objData.status == 200)
+        //         {
+        //             // User authenticated! Proceed to dashbard page
+        //             // console.log(objData)
+        //             // window.location.href="/dashboard.html"
+        //             swapToPage('#pageDashboard')
+        //         }
+        //         else
+        //         {
+        //             // Swal for invalid creds
+        //             Swal.fire ({
+        //                 title: "Invalid credentails",
+        //                 icon: "error"
+        //             })
+        //         }
+        //     }
+        // )
+        // .catch(
+        //     error => {
+        //         // We put error alert here
+        //         Swal.fire ({
+        //             title: "Error!",
+        //             message: error
+        //         })
+        //     }
+        // )
 
 
         // If validation goes well (we have a yes) do the rest of the function from here
