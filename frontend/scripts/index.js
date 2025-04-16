@@ -10,7 +10,7 @@ let rowCourseClicked = null
 /* Init */
 swapToPage('#pageLogin')
 // Debug
-swapToPage('#pageDashboard')
+// swapToPage('#pageDashboard')
 
 /* Navigation Listeners */
 
